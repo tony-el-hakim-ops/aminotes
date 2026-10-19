@@ -1,0 +1,36 @@
+name: aminotes
+description: "Tiptap note editing for Flutter apps: the web app's JSON format, fully offline, design left to the host app."
+version: 0.15.1
+publish_to: 'none'
+repository: https://github.com/tony-el-hakim-ops/aminotes
+
+environment:
+  sdk: ^3.13.2
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Hosts the bundled Tiptap editor (assets/editor/) on Android/iOS.
+  webview_flutter: ^4.14.0
+  # Iframe hosting on Flutter web (lib/src/bridge/tiptap_host_web.dart).
+  web: ^1.1.1
+  # Voice notes: record, store offline, play.
+  record: ^7.1.2
+  path_provider: ^2.1.6
+  audioplayers: ^6.8.1
+  image_picker: ^1.2.4
+  pointer_interceptor: ^0.10.1+3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  webview_flutter_platform_interface: ^2.15.1
+
+flutter:
+  assets:
+    # The Tiptap editor page, built by `npm run build` in tiptap/.
+    - assets/editor/
+    # Web only: converts recordings to a format every device plays.
+    - assets/web_audio/

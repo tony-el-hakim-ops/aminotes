@@ -1,0 +1,30 @@
+{
+  "name": "aminotes_tiptap",
+  "version": "1.0.0",
+  "description": "The Tiptap side of the aminotes Flutter package: shared schema, editor page, build into ../assets/editor/.",
+  "scripts": {
+    "build": "node scripts/build_webview.mjs",
+    "test": "esbuild scripts/test_note.mjs --bundle --platform=node --format=esm --external:happy-dom --external:@happy-dom/global-registrator --outfile=build/test_note.mjs --log-level=warning && node --test build/test_note.mjs scripts/test_compat.mjs",
+    "normalize": "esbuild scripts/normalize.mjs --bundle --platform=node --format=esm --outfile=build/normalize.mjs --log-level=warning && node build/normalize.mjs fixtures/sample_note.input.json ../example/assets/sample_note.json"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@tiptap/core": "^3.31.4",
+    "@tiptap/extension-highlight": "^3.31.4",
+    "@tiptap/extension-image": "^3.31.4",
+    "@tiptap/extension-list": "^3.31.4",
+    "@tiptap/extension-table": "^3.31.4",
+    "@tiptap/extension-text-style": "^3.31.4",
+    "@tiptap/extensions": "^3.31.4",
+    "@tiptap/pm": "^3.31.4",
+    "@tiptap/starter-kit": "^3.31.4",
+    "mp4-muxer": "^5.2.2"
+  },
+  "devDependencies": {
+    "@happy-dom/global-registrator": "^21.0.1",
+    "esbuild": "^0.28.2",
+    "happy-dom": "^21.0.1"
+  },
+  "private": true
+}
